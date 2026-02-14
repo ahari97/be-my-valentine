@@ -1,0 +1,379 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+  font-family: "Georgia", serif;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Subtle heart pattern in background */
+body::before {
+  content: "❤️ 💕 💗";
+  position: fixed;
+  inset: 0;
+  font-size: 28px;
+  line-height: 2.2;
+  letter-spacing: 80px;
+  word-spacing: 120px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+
+/* Floating decorations around the page */
+.page-decorations {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float-emoji {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0.45;
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-emoji:nth-child(odd) { animation-delay: 0s; }
+.float-emoji:nth-child(3n) { animation-delay: -2s; }
+.float-emoji:nth-child(4n) { animation-delay: -4s; }
+
+.f1  { top: 8%;   left: 5%;   }
+.f2  { top: 15%;  right: 8%;  font-size: 1.1rem; }
+.f3  { top: 25%;  left: 3%;   }
+.f4  { top: 12%;  right: 12%; }
+.f5  { top: 35%;  right: 5%;  }
+.f6  { bottom: 40%; left: 8%; }
+.f7  { bottom: 30%; right: 10%; }
+.f8  { bottom: 25%; left: 6%;  font-size: 1.2rem; }
+.f9  { bottom: 18%; right: 4%; }
+.f10 { bottom: 12%; left: 10%; }
+.f11 { top: 45%;  left: 4%;   }
+.f12 { top: 55%;  right: 7%;  }
+.f13 { top: 70%;  left: 7%;   font-size: 1.2rem; }
+.f14 { top: 82%;  right: 6%;  }
+.f15 { bottom: 55%; right: 3%; }
+.f16 { top: 5%;   right: 18%; }
+.f17 { bottom: 8%; right: 15%; }
+.f18 { top: 22%;  left: 12%;  }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-12px) scale(1.05); }
+}
+
+/* Shared: hide by default */
+.hidden {
+  display: none !important;
+}
+
+/* Main content wrapper (replaces single card for multi-step flow) */
+.main-content {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  border: 2px solid rgba(199, 21, 133, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* A 💕 M initials badge on every card */
+.initials-badge {
+  font-size: 1.5rem;
+  color: #c71585;
+  margin-bottom: 16px;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+}
+
+.initials-badge-popup {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+/* Password screen needs z-index so it sits above decorations */
+.password-screen {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== Password screen ========== */
+.password-screen input {
+  width: 100%;
+  max-width: 240px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 2px solid #fecfef;
+  border-radius: 10px;
+  margin: 16px 0 8px;
+  font-family: Georgia, serif;
+}
+
+.password-error {
+  color: #c71585;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+/* ========== Typography ========== */
+h1 {
+  color: #c71585;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+h2 {
+  color: #c71585;
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #ff6b9d, #c71585);
+  color: white;
+}
+
+.btn-no {
+  background: #eee;
+  color: #666;
+}
+
+/* Terms intro (step after Yes) */
+.terms-intro {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 1.05rem;
+}
+
+.try-again {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 2px solid #ffe4ec;
+}
+
+.try-again p {
+  color: #666;
+  font-style: italic;
+}
+
+/* ========== Popup overlay (Error 404) ========== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.popup-overlay .initials-badge + .popup-message {
+  margin-top: 0;
+}
+
+.popup-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.popup-message {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+/* ========== Terms & conditions section (6 statements) ========== */
+.terms-card {
+  text-align: left;
+}
+
+.terms-card h2 {
+  text-align: center;
+}
+
+.terms-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.statement-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ffe4ec;
+}
+
+.statement-row:last-of-type {
+  border-bottom: none;
+}
+
+.statement-text {
+  flex: 1;
+  color: #333;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ddd;
+  border-radius: 26px;
+  transition: 0.3s;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #ff6b9d, #c71585);
+}
+
+.toggle input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}
+
+.agree-label {
+  font-size: 0.9rem;
+  color: #666;
+  min-width: 55px;
+}
+
+.complete-btn {
+  margin-top: 24px;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* ========== Final valentine message ========== */
+.message {
+  text-align: center;
+}
+
+.message h2 {
+  color: #c71585;
+  margin-bottom: 16px;
+}
+
+.message p {
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.valentine-photo {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 20px 0 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.sign-off {
+  font-style: italic;
+  margin-top: 16px;
+  color: #c71585;
+}

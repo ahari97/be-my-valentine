@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meghana Narayanan, do you take me, Aniruddh Hari, to be your Valentine?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Floating decorations (hearts, roses, teddy bears) -->
+  <div class="page-decorations" aria-hidden="true">
+    <span class="float-emoji f1">❤️</span>
+    <span class="float-emoji f2">💕</span>
+    <span class="float-emoji f3">🌹</span>
+    <span class="float-emoji f4">🧸</span>
+    <span class="float-emoji f5">💗</span>
+    <span class="float-emoji f6">🌹</span>
+    <span class="float-emoji f7">❤️</span>
+    <span class="float-emoji f8">🧸</span>
+    <span class="float-emoji f9">💕</span>
+    <span class="float-emoji f10">🌹</span>
+    <span class="float-emoji f11">💗</span>
+    <span class="float-emoji f12">🧸</span>
+    <span class="float-emoji f13">❤️</span>
+    <span class="float-emoji f14">💕</span>
+    <span class="float-emoji f15">🌹</span>
+    <span class="float-emoji f16">💗</span>
+    <span class="float-emoji f17">🧸</span>
+    <span class="float-emoji f18">❤️</span>
+  </div>
+
+  <!-- ========== 1. PASSWORD SCREEN ========== -->
+  <div id="password-screen" class="card password-screen">
+    <p class="initials-badge">A 💕 M</p>
+    <h2>Enter password to continue</h2>
+    <input type="password" id="password-input" placeholder="Password" autocomplete="off" />
+    <p id="password-error" class="password-error hidden">Wrong password. Try again!</p>
+    <button id="password-submit" class="btn btn-yes">Enter</button>
+  </div>
+
+  <!-- ========== 2. MAIN CONTENT (after password) ========== -->
+  <div id="main-content" class="main-content hidden">
+    <div class="card">
+      <p class="initials-badge">A 💕 M</p>
+      <h1>Megendra Narayaneshu - Do you take Aniruddh Hari to be your Valentine?</h1>
+      
+
+      <div id="buttons" class="buttons">
+        <button id="yes-btn" class="btn btn-yes">Yes! 💕</button>
+        <button id="no-btn" class="btn btn-no">No 😢</button>
+      </div>
+
+      <!-- Shown when she clicks No (playful) -->
+      <div id="try-again" class="try-again hidden">
+        <p>Error 404: this option ain't available dawg</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 3. TERMS MESSAGE (after Yes) ========== -->
+  <div id="terms-message" class="main-content hidden">
+    <div class="card">
+      <p class="initials-badge">A 💕 M</p>
+      <p class="terms-intro">Always knew you unconditionally love me, but sadly you must agree to the following terms and conditions for a bidirectional valentine confirmation. Such is life Megu.</p>
+      <div class="buttons">
+        <button id="accept-terms-btn" class="btn btn-yes">NLOAL, I am ready to accept anything for my valentine, where do I sign?</button>
+        <button id="reject-terms-btn" class="btn btn-no">Ummmmm I ain't trynna be a valentine</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 4. ERROR 404 POPUP ========== -->
+  <div id="error-popup" class="popup-overlay hidden">
+    <div class="popup-card">
+      <p class="initials-badge initials-badge-popup">A 💕 M</p>
+      <p class="popup-message">Error 404: this option ain't available dawg</p>
+      <button id="close-popup-btn" class="btn btn-yes">Close</button>
+    </div>
+  </div>
+
+  <!-- ========== 5. TERMS & CONDITIONS (6 statements + Complete) ========== -->
+  <div id="terms-section" class="main-content hidden">
+    <div class="card terms-card">
+      <p class="initials-badge">A 💕 M</p>
+      <h2>Terms & Conditions</h2>
+      <p class="terms-subtitle">Please agree to each statement below.</p>
+
+      <!-- EDIT THESE 6 STATEMENTS: change the text inside the <span> tags -->
+      <div class="statement-row">
+        <span class="statement-text">Statement 1: I, Megu, am the sweetest, kindest and most beautiful girl in the world.</span>
+        <label class="toggle">
+          <input type="checkbox" class="agree-toggle" data-index="0" />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="agree-label">I agree</span>
+      </div>
+      <div class="statement-row">
+        <span class="statement-text">Statement 2: I, Megu, understand that I am a true catch and that I am the best thing that has ever happened to Aniruddh.</span>
+        <label class="toggle">
+          <input type="checkbox" class="agree-toggle" data-index="1" />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="agree-label">I agree</span>
+      </div>
+      <div class="statement-row">
+        <span class="statement-text">Statement 3: I, Megu, agree that I am bad at flirting and making moves, and the reason I am marrying Aniruddh is because of his undying persistence during moves szn 2023.</span>
+        <label class="toggle">
+          <input type="checkbox" class="agree-toggle" data-index="2" />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="agree-label">I agree</span>
+      </div>
+      <div class="statement-row">
+        <span class="statement-text">Statement 4: I, Megu, agree that I have to make a conscious effort to shower more in the interest of Aniruddh's high hygiene standards.</span>
+        <label class="toggle">
+          <input type="checkbox" class="agree-toggle" data-index="3" />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="agree-label">I agree</span>
+      </div>
+      <div class="statement-row">
+        <span class="statement-text">Statement 5: I Megu, will accept and not contest Aniruddh's valentine verdict on the next page. </span>
+        <label class="toggle">
+          <input type="checkbox" class="agree-toggle" data-index="4" />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="agree-label">I agree</span>
+      </div>
+
+      <button id="complete-btn" class="btn btn-yes complete-btn" disabled>Complete</button>
+    </div>
+  </div>
+
+  <!-- ========== 6. FINAL VALENTINE MESSAGE ========== -->
+  <div id="final-message" class="main-content hidden">
+    <div class="card message">
+      <p class="initials-badge">A 💕 M</p>
+      <!-- PERSONALIZE THIS SECTION: edit the content below -->
+      <h2>You're my forever Valentine, Megu!  💗</h2>
+      <p>Everyday feels special with you by my side, I love you >>>>>> 10000000000x more than the number of AI tokens used to make this wesbite</p>
+      <!-- Add your photo: put your image file in the valentines-website folder and set src to its filename, e.g. valentine-photo.jpg -->
+      <img src="valentine-photo.jpg" alt="Us 💕" class="valentine-photo" />
+      <p class="sign-off">— Aniruddh (taergadina) 💕</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
